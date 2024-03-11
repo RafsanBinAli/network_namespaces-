@@ -1,15 +1,15 @@
 # network_namespaces-
 A network namespace in Linux is a feature that allows you to create multiple isolated instances of network stacks on a single Linux system. Each network namespace has its own set of network interfaces, routing table, firewall rules, and sockets.
 
-To show all the namespaces in your machine, type the command:
+To show all the namespaces in your machine:
 
 	 ip netns
 	
-To add a namespace,type the command :
+To add a namespace :
 
 	ip netns add namespace_name
 
-For reasoning, let's make two namespaces by typing the commands:
+For reasoning, let's make two namespaces :
 
 	sudo ip netns add one
 	sudo ip netns add two
@@ -19,7 +19,7 @@ If you wanna check if they are actually isolated or not, you can just compare th
 	ip link // to check your whole machine 
 	sudo ip netns exec one ip link  or  sudo ip -n one link // to check the namespace one
 	
-It's time to Establish Network Connectivity. We will create a cable to connect it from namespace one to two. To do that, type the command :
+It's time to Establish Network Connectivity. We will create a cable to connect it from namespace one to two. To do that :
 
 	sudo ip link add veth-one type veth peer name veth-two
 
