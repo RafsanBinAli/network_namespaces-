@@ -60,27 +60,42 @@ Create a Bridge and bring it up:
 
 	sudo ip link add v-net-0 type bridge
 	sudo ip link set dev v-net-0 up
+
+ ![image 7](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/585798e3-1fb9-43ed-b21a-ab7b092f2fa6)
+
 	
 Now new set up for interfaces connection :
 
 	sudo ip link add veth-one type veth peer name veth-one-br
 	sudo ip link add veth-two type veth peer name veth-two-br
+ 
+![i8](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/67ff5d65-f525-4a1d-907e-ab2062c3fccb)
+ 
 	
 Assigning interfaces to their respective namespaces:
 
 	sudo ip link set veth-one netns one
 	sudo ip link set veth-two netns two
+ 
+![i9](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/cd7872a8-9490-45c4-94c8-6b5c89715892)
+
+ 
 	
 Assigning interfaces (another terminal to v-net-0/Bridge):
 
 	sudo ip link set veth-one-br master v-net-0
 	sudo ip link set veth-two-br master v-net-0
+
+ ![i10](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/c09816db-a6d7-4c95-ae82-1a2b0b09c052)
+
 	
 Assigining ip addresses to the namespaces and bridge:
 
 	sudo ip -n one addr add 192.168.15.1/24 dev veth-one
 	sudo ip -n two addr add 192.168.15.2/24 dev veth-two
 	sudo ip addr add 192.168.15.5/24 dev v-net-0
+ ![i11](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/e443c984-15d4-44e4-9831-0b834f42f9f2)
+
 	
 Bring up the interfaces:
 
