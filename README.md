@@ -122,7 +122,13 @@ To recognize your private ip to the outer network , you should enable NAT, for t
 	
 So we have to add entry to the routing table
 
+	sudo ip netns exec one ip route add 192.168.0.0/24 via 192.168.15.5
+ ![image shesh hoy na](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/d2bd2d0f-180d-45b5-84ac-23cd3d29599a)
+
+
 	sudo ip netns exec one ip route add default via 192.168.15.5
+ ![image not last](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/25cf28e8-19aa-4da4-bd5c-6758cced6ce7)
+
 
 
 
