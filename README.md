@@ -24,16 +24,24 @@ If you wanna check if they are actually isolated or not, you can just compare th
 It's time to Establish Network Connectivity. We will create a cable to connect it from namespace one to two. To do that :
 
 	sudo ip link add veth-one type veth peer name veth-two
+ ![image 2](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/41250efe-06b7-4a53-b0e6-da456f306233)
+
 
 The Connection is established . We have to assign each interfaces ( cable's endpoint) to their respective namespaces. To do that:
 
 	sudo ip link set veth-one netns one
 	sudo ip link set veth-two netns two
+ 
+ ![image 3](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/05f26535-e6f3-4019-ac0c-5fa9b57620ee)
+
 
 Now Assign ip address to each namespaces :
 
 	sudo ip -n one addr add 192.168.1.1/24 dev veth-one
 	sudo ip -n two addr add 192.168.1.2/24 dev veth-two
+ 
+ ![image 4](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/5b81542a-1930-401a-899b-7aa4e1774cac)
+
 	
 To Bring up the connection from both end:
 
