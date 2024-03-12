@@ -13,6 +13,7 @@ For reasoning, let's make two namespaces :
 
 	sudo ip netns add one
 	sudo ip netns add two
+![Alt text] https://ibb.co/3kmLwDs
 
 If you wanna check if they are actually isolated or not, you can just compare the outputs of the commands:
 
