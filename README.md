@@ -13,7 +13,8 @@ For reasoning, let's make two namespaces :
 
 	sudo ip netns add one
 	sudo ip netns add two
-![Alt text] https://ibb.co/3kmLwDs
+
+![docker image 1](https://github.com/RafsanBinAli/network_namespaces-/assets/154937557/ed53efc9-cab7-47e1-b9e9-d200b873c42a)
 
 If you wanna check if they are actually isolated or not, you can just compare the outputs of the commands:
 
